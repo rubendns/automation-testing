@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Modular</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <h1 id="titulo-principal">Calculadora Modular</h1>
+  <p>Bienvenido a nuestra calculadora web.</p>
+
+
+  <form id="form-calculadora" action="#" method="post">
+
+    <label for="num1">Primer número:</label>
+    <input type="number" id="num1" name="num1" step="any">
+
+    <label for="num2">Segundo número:</label>
+    <input type="number" id="num2" name="num2" step="any">
+
+
+    <p>Seleccioná una operación:</p>
+
+    <input type="radio" id="sumar" name="operacion" value="sumar">
+    <label for="sumar">Sumar</label>
+
+    <input type="radio" id="restar" name="operacion" value="restar">
+    <label for="restar">Restar</label>
+
+    <input type="radio" id="multiplicar" name="operacion" value="multiplicar">
+    <label for="multiplicar">Multiplicar</label>
+
+    <input type="radio" id="dividir" name="operacion" value="dividir">
+    <label for="dividir">Dividir</label>
+
+    <button type="submit" id="btn-calcular">Calcular</button>
+
+  </form>
+
+
+</body>
+
+</html>
