@@ -34,3 +34,14 @@ def test_crear_usuario(nombre, trabajo):
     # Verificar los campos generados por la API
     assert "id" in datos
     assert "createdAt" in datos
+
+        # Obtener el año actual en UTC
+    anio_actual = datetime.now(timezone.utc).year
+
+    # Convertir la fecha de creación recibida de la API
+    fecha_creacion = datetime.fromisoformat(
+        datos["createdAt"].replace("Z", "+00:00")
+    )
+
+    # Verificar que el usuario fue creado en el año actual
+    assert fecha_creacion.year == anio_actual
