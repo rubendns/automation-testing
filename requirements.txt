@@ -3,3 +3,5 @@ selenium
 requests
 faker
 pytest-html
+pytest-check
+pytest-rerunfailures
