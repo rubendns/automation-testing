@@ -4,8 +4,9 @@ import requests
 
 @pytest.mark.api
 @pytest.mark.regression
-def test_actualizar_post_con_put(post_by_id_url):
+def test_actualizar_post_con_put(post_by_id_url, request):
     url = post_by_id_url
+    request.node.page_url = url
 
     # Datos completos que queremos enviar
     payload = {
