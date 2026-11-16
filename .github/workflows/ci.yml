@@ -36,3 +36,7 @@ jobs:
           python --version
           python -m pytest --version
           python -m behave --version
+
+      - name: Ejecutar pruebas API
+        run: |
+          python -m pytest Clase12/tests_api/ -v
