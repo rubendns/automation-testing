@@ -41,6 +41,6 @@ jobs:
         run: |
           python -m pytest Clase12/tests_api/ -v
 
-      - name: Ejecutar pruebas BDD de login
+      - name: Ejecutar pruebas BDD de interfaz
         run: |
-          python -m behave Clase14/features/login.feature --no-capture
+          python -m behave Clase14/features/login.feature Clase14/features/cart.feature --no-capture
