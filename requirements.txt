@@ -5,3 +5,5 @@ faker
 pytest-html
 pytest-check
 pytest-rerunfailures
+behave
+behave-html-formatter
