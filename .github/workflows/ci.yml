@@ -40,3 +40,7 @@ jobs:
       - name: Ejecutar pruebas API
         run: |
           python -m pytest Clase12/tests_api/ -v
+
+      - name: Ejecutar pruebas BDD de login
+        run: |
+          python -m behave Clase14/features/login.feature --no-capture
