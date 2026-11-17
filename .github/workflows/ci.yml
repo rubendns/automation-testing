@@ -39,8 +39,20 @@ jobs:
 
       - name: Ejecutar pruebas API
         run: |
-          python -m pytest Clase12/tests_api/ -v
+          mkdir -p reports
+          python -m pytest Clase12/tests_api/ -v --html=reports/pytest_report.html --self-contained-html
 
       - name: Ejecutar suite completa BDD
         run: |
-          python -m behave Clase14/features/ --no-capture
+          python -m behave Clase14/features/ -f json -o reports/behave.json -f pretty
+
+      - name: Publicar reportes de pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportes-clase15
+          path: |
+            reports/pytest_report.html
+            reports/behave.json
+          retention-days: 90
+          if-no-files-found: warn
