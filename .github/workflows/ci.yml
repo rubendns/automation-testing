@@ -46,6 +46,10 @@ jobs:
         run: |
           python -m behave Clase14/features/ -f json -o reports/behave.json -f pretty
 
+      - name: Ejecutar prueba UI con logging
+        run: |
+          python -m pytest Clase13/tests_ui/test_captura_fallo.py -v
+
       - name: Publicar reportes de pruebas
         if: always()
         uses: actions/upload-artifact@v4
@@ -54,5 +58,6 @@ jobs:
           path: |
             reports/pytest_report.html
             reports/behave.json
+            logs/*.log
           retention-days: 90
           if-no-files-found: warn

@@ -1,3 +1,5 @@
+import os
+from selenium.webdriver.chrome.options import Options
 import pytest
 from selenium import webdriver
 from utils.logger import obtener_logger
@@ -7,8 +9,18 @@ logger = obtener_logger()
 
 @pytest.fixture
 def driver():
-    navegador = webdriver.Chrome()
+    opciones = Options()
+
+    if os.getenv("CI") == "true":
+        opciones.add_argument("--headless=new")
+        opciones.add_argument("--no-sandbox")
+        opciones.add_argument("--disable-dev-shm-usage")
+        opciones.add_argument("--window-size=1920,1080")
+
+    navegador = webdriver.Chrome(options=opciones)
+
     yield navegador
+
     navegador.quit()
 
 
